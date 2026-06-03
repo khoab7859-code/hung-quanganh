@@ -48,55 +48,6 @@ body{
     box-shadow:0 0 25px rgba(0,0,0,0.3);
 }
 
-/* 📱 MENU */
-.menu{
-    position:fixed;
-    top:15px;
-    right:15px;
-    z-index:3;
-}
-
-.menu-btn{
-    background:#ffffff20;
-    color:white;
-    padding:10px 15px;
-    border-radius:10px;
-    cursor:pointer;
-    backdrop-filter:blur(10px);
-    font-weight:bold;
-    text-align:center;
-    width:220px;
-}
-
-/* dropdown */
-.menu-content{
-    display:none;
-    margin-top:10px;
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-}
-
-.menu-content a{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 15px;
-    text-decoration:none;
-    color:#333;
-    transition:0.2s;
-}
-
-.menu-content a:hover{
-    background:#f2f2f2;
-}
-
-.menu-content img{
-    width:22px;
-    height:22px;
-}
-
-/* text */
 h1{
     font-size:42px;
     margin-bottom:15px;
@@ -112,6 +63,36 @@ p{
     font-size:14px;
     color:#e6f7ff;
 }
+
+/* MXH title */
+.mxh-title{
+    margin-top:20px;
+    font-weight:bold;
+}
+
+/* IG button */
+.social a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    margin-top:12px;
+    padding:16px 32px;
+    background:#E1306C;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:bold;
+    font-size:18px;
+
+    transition:0.3s;
+}
+
+.social a:hover{
+    transform:scale(1.1);
+    background:#c82361;
+}
 </style>
 </head>
 
@@ -120,25 +101,6 @@ p{
 <!-- 🌧️ mưa -->
 <canvas id="rain"></canvas>
 
-<!-- 📱 MENU MXH -->
-<div class="menu">
-    
-    <div class="menu-btn" onclick="toggleMenu()">
-        Tất cả các MXH của Quang Anh ở đây 👇
-    </div>
-
-    <div class="menu-content" id="menu">
-
-        <a target="_blank"
-        href="https://www.instagram.com/_quag4ahn?igsh=MWNoNnZ3ZmhhcHBkdw%3D%3D&utm_source=qr">
-
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-            Instagram
-        </a>
-
-    </div>
-</div>
-
 <div class="card">
     <h1>Quang Anh</h1>
 
@@ -146,15 +108,19 @@ p{
     <p>💙 Cảm ơn bạn đã ghé thăm</p>
 
     <p class="creator">Được tạo bởi Quang Anh</p>
+
+    <!-- 📱 MXH -->
+    <p class="mxh-title">Tất cả MXH của Quang Anh ở đây 👇</p>
+
+    <div class="social">
+        <a target="_blank"
+        href="https://www.instagram.com/_quag4ahn?igsh=MWNoNnZ3ZmhhcHBkdw%3D%3D&utm_source=qr">
+            📷 Instagram
+        </a>
+    </div>
 </div>
 
 <script>
-function toggleMenu(){
-    let menu = document.getElementById("menu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-
-/* 🌧️ mưa */
 const canvas = document.getElementById("rain");
 const ctx = canvas.getContext("2d");
 
