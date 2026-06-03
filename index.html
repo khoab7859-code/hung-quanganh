@@ -69,7 +69,7 @@ p{
     font-weight:bold;
 }
 
-/* 🌫️ iOS 26 GLASS IG */
+/* 🌫️ IG RECT GLASS (iOS STYLE) */
 .social{
     display:flex;
     justify-content:center;
@@ -78,15 +78,16 @@ p{
 
 .ig-box{
     display:flex;
-    flex-direction:column;
     align-items:center;
-    justify-content:center;
-    gap:12px;
+    justify-content:flex-start;
+    gap:18px;
 
-    width:210px;
-    height:210px;
+    width:280px;
+    height:90px;
 
-    border-radius:28px;
+    padding:0 20px;
+
+    border-radius:22px;
 
     background: rgba(255,255,255,0.10);
     backdrop-filter: blur(25px);
@@ -101,26 +102,24 @@ p{
     text-decoration:none;
     color:white;
 
-    font-size:19px;
+    font-size:18px;
     font-weight:bold;
 
-    transition:0.25s ease;
+    transition:0.25s;
 }
 
 .ig-box:hover{
-    transform:scale(1.08);
+    transform:scale(1.06);
     background: rgba(255,255,255,0.18);
     box-shadow:
         0 15px 40px rgba(0,0,0,0.35),
-        0 0 25px rgba(225,48,108,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.5);
+        0 0 20px rgba(225,48,108,0.4);
 }
 
-/* 📷 ICON IG (TO HƠN) */
+/* 📷 icon IG */
 .ig-box img{
-    width:100px;
-    height:100px;
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+    width:60px;
+    height:60px;
 }
 </style>
 </head>
