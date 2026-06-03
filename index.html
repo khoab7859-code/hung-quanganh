@@ -20,38 +20,19 @@ body{
   font-family:-apple-system, BlinkMacSystemFont, sans-serif;
   overflow:hidden;
 
-  /* nền iOS gradient động */
   background: linear-gradient(-45deg,#0a84ff,#5ac8fa,#64d2ff,#007aff);
   background-size:400% 400%;
-  animation: gradientMove 10s ease infinite;
+  animation: bg 10s ease infinite;
 }
 
-@keyframes gradientMove{
+@keyframes bg{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
 
-/* ánh sáng chạy */
-body::before{
-  content:"";
-  position:absolute;
-  width:200%;
-  height:200%;
-  background: radial-gradient(circle,rgba(255,255,255,0.15),transparent 60%);
-  animation: lightMove 6s linear infinite;
-}
-
-@keyframes lightMove{
-  0%{transform:translate(-30%,-30%)}
-  50%{transform:translate(10%,10%)}
-  100%{transform:translate(-30%,-30%)}
-}
-
-/* CARD GLASS */
+/* card glass */
 .card{
-  position:relative;
-  z-index:2;
   width:88%;
   max-width:430px;
   padding:30px;
@@ -70,28 +51,29 @@ body::before{
   animation: float 4s ease-in-out infinite;
 }
 
-/* card nổi nhẹ */
 @keyframes float{
-  0%{transform:translateY(0px)}
+  0%{transform:translateY(0)}
   50%{transform:translateY(-8px)}
-  100%{transform:translateY(0px)}
+  100%{transform:translateY(0)}
 }
 
-/* TITLE */
 h2{
-  font-size:18px;
-  font-weight:600;
-  margin-bottom:20px;
-  letter-spacing:0.5px;
+  font-size:20px;
+  margin-bottom:10px;
 }
 
-/* IG BUTTON */
+p{
+  margin:5px 0;
+}
+
+/* IG box */
 .ig{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:12px;
 
+  margin-top:12px;
   padding:15px;
   border-radius:20px;
 
@@ -99,38 +81,20 @@ h2{
   border: 1px solid rgba(255,255,255,0.25);
 
   transition:0.25s;
-  cursor:pointer;
 }
 
 .ig:hover{
   transform:scale(1.05);
-  background: rgba(255,255,255,0.25);
 }
 
 .ig img{
   width:40px;
-  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
 }
 
 .ig a{
   color:white;
   text-decoration:none;
   font-weight:600;
-}
-
-/* glow viền nhẹ */
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:28px;
-  padding:1px;
-  background: linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
 }
 </style>
 </head>
@@ -144,17 +108,36 @@ h2{
 
 <div class="card">
 
-  <h2>Tất cả mxh của Quang Anh ở đây👇</h2>
+  <!-- avatar -->
+  <img src="https://i.imgur.com/8Km9tLL.png"
+       style="width:80px;height:80px;border-radius:50%;
+       border:2px solid rgba(255,255,255,0.4);
+       margin-bottom:10px;">
 
+  <h2>Quang Anh</h2>
+
+  <p style="opacity:0.8;">✨ Welcome to my profile</p>
+
+  <p style="font-size:13px;opacity:0.7;margin-top:10px;">
+    Tất cả mxh của Quang Anh ở đây👇
+  </p>
+
+  <!-- IG -->
   <div class="ig">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
     <a href="https://www.instagram.com/_quag4ahn" target="_blank">Instagram</a>
   </div>
 
+  <!-- TikTok -->
+  <div class="ig">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+    <a href="#">TikTok (coming soon)</a>
+  </div>
+
 </div>
 
 <script>
-// click bất kỳ đâu = phát nhạc
+// click là phát nhạc
 document.addEventListener("click", () => {
   document.getElementById("bgmusic").play();
 }, { once:true });
