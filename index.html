@@ -7,194 +7,169 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    min-height:100vh;
-    overflow:hidden;
-    background:linear-gradient(135deg,#00bfff,#1e90ff,#4169e1);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#00bfff,#1e90ff,#4169e1);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
 }
 
-/* 🌧️ mưa */
-#rain{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    z-index:1;
+/* mưa */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:0;
 }
 
-/* card */
 .card{
-    position:relative;
-    z-index:2;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    color:white;
-    width:90%;
-    max-width:600px;
-    box-shadow:0 0 25px rgba(0,0,0,0.3);
+  position:relative;
+  z-index:1;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(12px);
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  color:white;
+  width:90%;
+  max-width:600px;
+  box-shadow:0 0 25px rgba(0,0,0,0.3);
 }
 
 h1{
-    font-size:42px;
-    margin-bottom:15px;
+  font-size:40px;
+  margin-bottom:10px;
 }
 
 p{
-    font-size:18px;
-    margin:10px 0;
+  font-size:16px;
+  margin:10px 0;
 }
 
 .creator{
-    margin-top:20px;
-    font-size:14px;
-    color:#e6f7ff;
+  margin-top:15px;
+  opacity:0.8;
 }
 
-.mxh-title{
-    margin-top:20px;
-    font-weight:bold;
-}
-
-/* 🌫️ IG RECT GLASS (iOS STYLE) */
-.social{
-    display:flex;
-    justify-content:center;
-    margin-top:15px;
-}
-
+/* IG box */
 .ig-box{
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:18px;
-
-    width:280px;
-    height:90px;
-
-    padding:0 20px;
-
-    border-radius:22px;
-
-    background: rgba(255,255,255,0.10);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-
-    border: 1px solid rgba(255,255,255,0.35);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.4);
-
-    text-decoration:none;
-    color:white;
-
-    font-size:18px;
-    font-weight:bold;
-
-    transition:0.25s;
+  margin-top:20px;
+  background:rgba(255,255,255,0.2);
+  border-radius:15px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
 }
 
-.ig-box:hover{
-    transform:scale(1.06);
-    background: rgba(255,255,255,0.18);
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.35),
-        0 0 20px rgba(225,48,108,0.4);
-}
-
-/* 📷 icon IG */
 .ig-box img{
-    width:60px;
-    height:60px;
+  width:40px;
+  height:40px;
+}
+
+.ig-box a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* nút */
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:white;
+  color:#1e90ff;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🌧️ mưa -->
 <canvas id="rain"></canvas>
 
+<!-- NHẠC -->
+<audio id="bgmusic" loop>
+  <source src="https://raw.githubusercontent.com/khoab7859-code/Quanganh/main/2AM%20Hoodtrap.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
-    <h1>Quang Anh</h1>
+  <h1>Quang Anh</h1>
+  <p>Chào mừng đến với website chính thức</p>
+  <p>💙 Cảm ơn bạn đã ghé thăm</p>
 
-    <p>Chào mừng bạn đến với website ✨</p>
-    <p>💙 Cảm ơn bạn đã ghé thăm</p>
+  <a class="btn" href="#">Khám phá</a>
 
-    <p class="creator">Được tạo bởi Quang Anh</p>
+  <!-- IG -->
+  <div class="ig-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+    <a href="https://www.instagram.com/_quag4ahn" target="_blank">
+      Instagram của tôi
+    </a>
+  </div>
 
-    <p class="mxh-title">Tất cả MXH của Quang Anh ở đây 👇</p>
-
-    <div class="social">
-        <a class="ig-box" target="_blank"
-        href="https://www.instagram.com/_quag4ahn?igsh=MWNoNnZ3ZmhhcHBkdw%3D%3D&utm_source=qr">
-
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-            Instagram
-        </a>
-    </div>
+  <p class="creator">Được tạo bởi Quang Anh</p>
 </div>
 
 <script>
+// CLICK LÀ PHÁT NHẠC
+document.addEventListener("click", () => {
+  document.getElementById("bgmusic").play();
+}, { once:true });
+
+// MƯA
 const canvas = document.getElementById("rain");
 const ctx = canvas.getContext("2d");
 
-function resize(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 let drops = [];
 
-for(let i=0;i<130;i++){
-    drops.push({
-        x: Math.random()*window.innerWidth,
-        y: Math.random()*window.innerHeight,
-        len: Math.random()*20+10,
-        speed: Math.random()*6+2
-    });
+for(let i=0;i<100;i++){
+  drops.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    l: Math.random()*20+10,
+    s: Math.random()*5+2
+  });
 }
 
-function rain(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.strokeStyle="rgba(255,255,255,0.6)";
+  for(let d of drops){
+    ctx.beginPath();
+    ctx.moveTo(d.x,d.y);
+    ctx.lineTo(d.x,d.y+d.l);
+    ctx.stroke();
 
-    ctx.strokeStyle="rgba(255,255,255,0.7)";
-    ctx.lineWidth=1;
-
-    for(let d of drops){
-        ctx.beginPath();
-        ctx.moveTo(d.x,d.y);
-        ctx.lineTo(d.x,d.y+d.len);
-        ctx.stroke();
-
-        d.y += d.speed;
-
-        if(d.y > canvas.height){
-            d.y = -20;
-            d.x = Math.random()*window.innerWidth;
-        }
+    d.y += d.s;
+    if(d.y>canvas.height){
+      d.y=-20;
+      d.x=Math.random()*canvas.width;
     }
-
-    requestAnimationFrame(rain);
+  }
+  requestAnimationFrame(draw);
 }
+draw();
 
-rain();
+window.addEventListener("resize",()=>{
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+});
 </script>
 
 </body>
