@@ -13,92 +13,129 @@
 }
 
 body{
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#00bfff,#1e90ff,#4169e1);
-  min-height:100vh;
+  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
+  font-family:-apple-system, BlinkMacSystemFont, sans-serif;
   overflow:hidden;
+
+  /* nền iOS gradient động */
+  background: linear-gradient(-45deg,#0a84ff,#5ac8fa,#64d2ff,#007aff);
+  background-size:400% 400%;
+  animation: gradientMove 10s ease infinite;
 }
 
-/* mưa */
-canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:0;
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
+/* ánh sáng chạy */
+body::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background: radial-gradient(circle,rgba(255,255,255,0.15),transparent 60%);
+  animation: lightMove 6s linear infinite;
+}
+
+@keyframes lightMove{
+  0%{transform:translate(-30%,-30%)}
+  50%{transform:translate(10%,10%)}
+  100%{transform:translate(-30%,-30%)}
+}
+
+/* CARD GLASS */
 .card{
   position:relative;
-  z-index:1;
-  background:rgba(255,255,255,0.15);
-  backdrop-filter:blur(12px);
-  padding:40px;
-  border-radius:20px;
+  z-index:2;
+  width:88%;
+  max-width:430px;
+  padding:30px;
+  border-radius:28px;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+
   text-align:center;
   color:white;
-  width:90%;
-  max-width:600px;
-  box-shadow:0 0 25px rgba(0,0,0,0.3);
+
+  animation: float 4s ease-in-out infinite;
 }
 
-h1{
-  font-size:40px;
-  margin-bottom:10px;
+/* card nổi nhẹ */
+@keyframes float{
+  0%{transform:translateY(0px)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0px)}
 }
 
-p{
-  font-size:16px;
-  margin:10px 0;
+/* TITLE */
+h2{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:20px;
+  letter-spacing:0.5px;
 }
 
-.creator{
-  margin-top:15px;
-  opacity:0.8;
-}
-
-/* IG box */
-.ig-box{
-  margin-top:20px;
-  background:rgba(255,255,255,0.2);
-  border-radius:15px;
-  padding:15px;
+/* IG BUTTON */
+.ig{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:12px;
+
+  padding:15px;
+  border-radius:20px;
+
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.25);
+
+  transition:0.25s;
+  cursor:pointer;
 }
 
-.ig-box img{
+.ig:hover{
+  transform:scale(1.05);
+  background: rgba(255,255,255,0.25);
+}
+
+.ig img{
   width:40px;
-  height:40px;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
 }
 
-.ig-box a{
+.ig a{
   color:white;
   text-decoration:none;
-  font-weight:bold;
+  font-weight:600;
 }
 
-/* nút */
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 20px;
-  background:white;
-  color:#1e90ff;
-  border-radius:20px;
-  text-decoration:none;
-  font-weight:bold;
+/* glow viền nhẹ */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:28px;
+  padding:1px;
+  background: linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 </style>
 </head>
 
 <body>
-
-<canvas id="rain"></canvas>
 
 <!-- NHẠC -->
 <audio id="bgmusic" loop>
@@ -106,70 +143,21 @@ p{
 </audio>
 
 <div class="card">
-  <h1>Quang Anh</h1>
-  <p>Chào mừng đến với website chính thức</p>
-  <p>💙 Cảm ơn bạn đã ghé thăm</p>
 
-  <a class="btn" href="#">Khám phá</a>
+  <h2>Tất cả mxh của Quang Anh ở đây👇</h2>
 
-  <!-- IG -->
-  <div class="ig-box">
+  <div class="ig">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-    <a href="https://www.instagram.com/_quag4ahn" target="_blank">
-      Instagram của tôi
-    </a>
+    <a href="https://www.instagram.com/_quag4ahn" target="_blank">Instagram</a>
   </div>
 
-  <p class="creator">Được tạo bởi Quang Anh</p>
 </div>
 
 <script>
-// CLICK LÀ PHÁT NHẠC
+// click bất kỳ đâu = phát nhạc
 document.addEventListener("click", () => {
   document.getElementById("bgmusic").play();
 }, { once:true });
-
-// MƯA
-const canvas = document.getElementById("rain");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let drops = [];
-
-for(let i=0;i<100;i++){
-  drops.push({
-    x: Math.random()*canvas.width,
-    y: Math.random()*canvas.height,
-    l: Math.random()*20+10,
-    s: Math.random()*5+2
-  });
-}
-
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.strokeStyle="rgba(255,255,255,0.6)";
-  for(let d of drops){
-    ctx.beginPath();
-    ctx.moveTo(d.x,d.y);
-    ctx.lineTo(d.x,d.y+d.l);
-    ctx.stroke();
-
-    d.y += d.s;
-    if(d.y>canvas.height){
-      d.y=-20;
-      d.x=Math.random()*canvas.width;
-    }
-  }
-  requestAnimationFrame(draw);
-}
-draw();
-
-window.addEventListener("resize",()=>{
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
-});
 </script>
 
 </body>
