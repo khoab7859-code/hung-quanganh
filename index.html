@@ -64,47 +64,63 @@ p{
     color:#e6f7ff;
 }
 
-/* MXH text */
 .mxh-title{
     margin-top:20px;
     font-weight:bold;
 }
 
-/* 📷 IG BUTTON (to + dài hơn) */
-.social a{
+/* 🌫️ iOS 26 GLASS IG */
+.social{
     display:flex;
-    align-items:center;
-    gap:14px;
-
+    justify-content:center;
     margin-top:15px;
-    padding:18px 45px;
+}
 
-    background:#E1306C;
-    color:white;
+.ig-box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    width:210px;
+    height:210px;
+
+    border-radius:28px;
+
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.4);
+
     text-decoration:none;
+    color:white;
 
-    border-radius:50px;
-
+    font-size:19px;
     font-weight:bold;
-    font-size:20px;
 
-    width:100%;
-    max-width:320px;
-    margin-left:auto;
-    margin-right:auto;
-
-    transition:0.3s;
+    transition:0.25s ease;
 }
 
-.social a:hover{
+.ig-box:hover{
     transform:scale(1.08);
-    background:#c82361;
+    background: rgba(255,255,255,0.18);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.35),
+        0 0 25px rgba(225,48,108,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.5);
 }
 
-/* icon IG */
-.social a img{
-    width:28px;
-    height:28px;
+/* 📷 ICON IG (TO HƠN) */
+.ig-box img{
+    width:100px;
+    height:100px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
 }
 </style>
 </head>
@@ -125,7 +141,7 @@ p{
     <p class="mxh-title">Tất cả MXH của Quang Anh ở đây 👇</p>
 
     <div class="social">
-        <a target="_blank"
+        <a class="ig-box" target="_blank"
         href="https://www.instagram.com/_quag4ahn?igsh=MWNoNnZ3ZmhhcHBkdw%3D%3D&utm_source=qr">
 
             <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
