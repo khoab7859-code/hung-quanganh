@@ -16,7 +16,6 @@ body{
     font-family:Arial,sans-serif;
     min-height:100vh;
     overflow:hidden;
-
     background:linear-gradient(135deg,#00bfff,#1e90ff,#4169e1);
     display:flex;
     justify-content:center;
@@ -59,20 +58,27 @@ p{
     margin:10px 0;
 }
 
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 25px;
-    background:white;
-    color:#1e90ff;
+/* 📷 Instagram button */
+.social{
+    margin-top:25px;
+}
+
+.social a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    background:#E1306C;
+    color:white;
     text-decoration:none;
     border-radius:30px;
     font-weight:bold;
     transition:0.3s;
 }
 
-.btn:hover{
-    transform:scale(1.05);
+.social a:hover{
+    transform:scale(1.08);
+    background:#c82361;
 }
 
 .creator{
@@ -95,7 +101,12 @@ p{
     <p>Chào mừng bạn đến với website ✨</p>
     <p>💙 Cảm ơn bạn đã ghé thăm</p>
 
-    <a href="#" class="btn">Khám phá</a>
+    <!-- 📷 Instagram -->
+    <div class="social">
+        <a href="https://www.instagram.com/_quag4ahn?igsh=MWNoNnZ3ZmhhcHBkdw%3D%3D&utm_source=qr" target="_blank">
+            📷 Instagram của tôi
+        </a>
+    </div>
 
     <p class="creator">Được tạo bởi Quang Anh</p>
 </div>
