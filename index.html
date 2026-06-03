@@ -14,14 +14,30 @@
 
 body{
     font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#00bfff,#1e90ff,#4169e1);
     min-height:100vh;
+    overflow:hidden;
+
+    background: linear-gradient(135deg,#00bfff,#1e90ff,#4169e1);
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
+/* 🌧️ canvas mưa */
+#rain{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:1;
+}
+
+/* card */
 .card{
+    position:relative;
+    z-index:2;
     background:rgba(255,255,255,0.15);
     backdrop-filter:blur(10px);
     padding:40px;
@@ -43,11 +59,6 @@ p{
     margin:10px 0;
 }
 
-.creator{
-    margin-top:20px;
-    color:#e6f7ff;
-}
-
 .btn{
     display:inline-block;
     margin-top:20px;
@@ -62,65 +73,65 @@ p{
 </head>
 
 <body>
-    <div class="card">
-        <h1>Quang Anh</h1>
 
-        <p>Chào mừng đến với website chính thức của chúng tôi.</p>
+<!-- 🌧️ CANVAS MƯA (BẮT BUỘC PHẢI CÓ) -->
+<canvas id="rain"></canvas>
 
-        <p>💙 Cảm ơn bạn đã ghé thăm website.</p>
+<div class="card">
+    <h1>Quang Anh</h1>
+    <p>Website có hiệu ứng mưa 🌧️</p>
+    <p>💙 Cảm ơn bạn đã ghé thăm</p>
+    <a class="btn" href="#">Khám phá</a>
+</div>
 
-        <a href="#" class="btn">Khám phá</a>
-
-        <p class="creator">Được tạo bởi Quang Anh</p>
-    </div>
 <script>
 const canvas = document.getElementById("rain");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
 
-let raindrops = [];
+window.addEventListener("resize", resize);
 
-for (let i = 0; i < 100; i++) {
-  raindrops.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    length: Math.random() * 20 + 10,
-    speed: Math.random() * 5 + 2
-  });
+let drops = [];
+
+for(let i=0;i<120;i++){
+    drops.push({
+        x: Math.random()*window.innerWidth,
+        y: Math.random()*window.innerHeight,
+        len: Math.random()*20+10,
+        speed: Math.random()*6+2
+    });
 }
 
-function drawRain() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function rain(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  ctx.strokeStyle = "rgba(255,255,255,0.6)";
-  ctx.lineWidth = 1;
+    ctx.strokeStyle="rgba(255,255,255,0.7)";
+    ctx.lineWidth=1;
 
-  for (let i = 0; i < raindrops.length; i++) {
-    let r = raindrops[i];
+    for(let d of drops){
+        ctx.beginPath();
+        ctx.moveTo(d.x,d.y);
+        ctx.lineTo(d.x,d.y+d.len);
+        ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(r.x, r.y);
-    ctx.lineTo(r.x, r.y + r.length);
-    ctx.stroke();
+        d.y += d.speed;
 
-    r.y += r.speed;
-
-    if (r.y > canvas.height) {
-      r.y = -20;
-      r.x = Math.random() * canvas.width;
+        if(d.y > canvas.height){
+            d.y = -20;
+            d.x = Math.random()*canvas.width;
+        }
     }
-  }
 
-  requestAnimationFrame(drawRain);
+    requestAnimationFrame(rain);
 }
 
-drawRain();
+rain();
+</script>
 
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-</script></body>
+</body>
 </html>
