@@ -31,7 +31,7 @@ body{
   100%{background-position:0% 50%}
 }
 
-/* card glass */
+/* card glass iOS */
 .card{
   width:88%;
   max-width:430px;
@@ -66,7 +66,7 @@ p{
   margin:5px 0;
 }
 
-/* IG box */
+/* IG / MXH box */
 .ig{
   display:flex;
   align-items:center;
@@ -96,6 +96,18 @@ p{
   text-decoration:none;
   font-weight:600;
 }
+
+/* credit */
+.credit{
+  margin-top:18px;
+  font-size:12px;
+  opacity:0.7;
+  padding:6px 12px;
+  display:inline-block;
+  border-radius:12px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
 </style>
 </head>
 
@@ -108,11 +120,12 @@ p{
 
 <div class="card">
 
-  <!-- avatar -->
-  <img src="https://i.imgur.com/8Km9tLL.png"
-       style="width:80px;height:80px;border-radius:50%;
-       border:2px solid rgba(255,255,255,0.4);
-       margin-bottom:10px;">
+  <!-- AVATAR MỚI -->
+  <img src="https://i.pravatar.cc/150?img=68"
+       style="width:85px;height:85px;border-radius:50%;
+       border:2px solid rgba(255,255,255,0.5);
+       margin-bottom:10px;
+       box-shadow:0 10px 25px rgba(0,0,0,0.3);">
 
   <h2>Quang Anh</h2>
 
@@ -133,6 +146,9 @@ p{
     <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
     <a href="#">TikTok (coming soon)</a>
   </div>
+
+  <!-- CREDIT -->
+  <p class="credit">Created by Quang Anh</p>
 
 </div>
 
