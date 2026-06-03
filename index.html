@@ -73,5 +73,54 @@ p{
 
         <p class="creator">Được tạo bởi Quang Anh</p>
     </div>
-</body>
+<script>
+const canvas = document.getElementById("rain");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let raindrops = [];
+
+for (let i = 0; i < 100; i++) {
+  raindrops.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    length: Math.random() * 20 + 10,
+    speed: Math.random() * 5 + 2
+  });
+}
+
+function drawRain() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "rgba(255,255,255,0.6)";
+  ctx.lineWidth = 1;
+
+  for (let i = 0; i < raindrops.length; i++) {
+    let r = raindrops[i];
+
+    ctx.beginPath();
+    ctx.moveTo(r.x, r.y);
+    ctx.lineTo(r.x, r.y + r.length);
+    ctx.stroke();
+
+    r.y += r.speed;
+
+    if (r.y > canvas.height) {
+      r.y = -20;
+      r.x = Math.random() * canvas.width;
+    }
+  }
+
+  requestAnimationFrame(drawRain);
+}
+
+drawRain();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script></body>
 </html>
