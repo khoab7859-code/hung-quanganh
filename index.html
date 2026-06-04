@@ -1,163 +1,40 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quang Anh</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:-apple-system, BlinkMacSystemFont, sans-serif;
-  overflow:hidden;
-
-  background: linear-gradient(-45deg,#0a84ff,#5ac8fa,#64d2ff,#007aff);
-  background-size:400% 400%;
-  animation: bg 10s ease infinite;
-}
-
-@keyframes bg{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* card glass iOS */
-.card{
-  width:88%;
-  max-width:430px;
-  padding:30px;
-  border-radius:28px;
-
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-
-  border: 1px solid rgba(255,255,255,0.25);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-
-  text-align:center;
-  color:white;
-
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-  100%{transform:translateY(0)}
-}
-
-h2{
-  font-size:20px;
-  margin-bottom:10px;
-}
-
-p{
-  margin:5px 0;
-}
-
-/* IG / MXH box */
-.ig{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-
-  margin-top:12px;
-  padding:15px;
-  border-radius:20px;
-
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.25);
-
-  transition:0.25s;
-}
-
-.ig:hover{
-  transform:scale(1.05);
-}
-
-.ig img{
-  width:40px;
-}
-
-.ig a{
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-}
-
-/* credit */
-.credit{
-  margin-top:18px;
-  font-size:12px;
-  opacity:0.7;
-  padding:6px 12px;
-  display:inline-block;
-  border-radius:12px;
-  background:rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-}
-</style>
-</head>
-
-<body>
-
-<!-- NHẠC -->
-<audio id="bgmusic" loop>
-  <source src="https://raw.githubusercontent.com/khoab7859-code/Quanganh/main/2AM%20Hoodtrap.mp3" type="audio/mpeg">
-</audio>
-
 <div class="card">
 
-  <!-- AVATAR MỚI -->
-  <img src="https://i.pravatar.cc/150?img=68"
-       style="width:85px;height:85px;border-radius:50%;
+  <!-- AVATAR -->
+  <img src="./477FBC52-DB53-4029-8259-951CE1506CB3.jpeg"
+       style="
+       width:100px;
+       height:100px;
+       border-radius:50%;
+       object-fit:cover;
+       object-position:center top;
        border:2px solid rgba(255,255,255,0.5);
        margin-bottom:10px;
        box-shadow:0 10px 25px rgba(0,0,0,0.3);">
 
   <h2>Quang Anh</h2>
 
-  <p style="opacity:0.8;">✨ Welcome to my profile</p>
-
   <p style="font-size:13px;opacity:0.7;margin-top:10px;">
     Tất cả mxh của Quang Anh ở đây👇
   </p>
 
-  <!-- IG -->
+  <!-- Instagram -->
   <div class="ig">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-    <a href="https://www.instagram.com/_quag4ahn" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/_quag4ahn" target="_blank">
+      Instagram
+    </a>
   </div>
 
   <!-- TikTok -->
   <div class="ig">
     <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
-    <a href="#">TikTok (coming soon)</a>
+    <a href="#">
+      TikTok (coming soon)
+    </a>
   </div>
 
-  <!-- CREDIT -->
+  <!-- Credit -->
   <p class="credit">Created by Quang Anh</p>
 
 </div>
-
-<script>
-// click là phát nhạc
-document.addEventListener("click", () => {
-  document.getElementById("bgmusic").play();
-}, { once:true });
-</script>
-
-</body>
-</html>
